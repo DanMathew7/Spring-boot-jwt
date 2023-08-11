@@ -17,6 +17,15 @@ import pl.rmitula.authapp.exception.NotFoundException;
 @Slf4j
 public class GlobalExceptionHandler {
 
+    
+    // @ExceptionHandler(HttpClientErrorException.class)
+    // @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    // public ErrorResponse httpClientErrorHandler(HttpClientErrorException httpClientErrorException) {
+    //     log.info(httpClientErrorException.getMessage());
+    //     return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), httpClientErrorException.getMessage());
+    // }
+
+
     @ExceptionHandler({BadRequestException.class, NoSuchFieldException.class, NumberFormatException.class, JsonProcessingException.class, IllegalArgumentException.class, PropertyReferenceException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse runtime(RuntimeException exception) {
